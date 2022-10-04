@@ -10,27 +10,35 @@ class RandomChar extends Component {
     }
 
     state = {
-        name: null,
-        description: null,
-        thumbnail: null,
-        homepage: null,
-        wiki: null
+        char: {}
     }
 
     marvelService = new MarvelService();
+
+    onCharLoaded = (char) => {
+        this.setState({ char });
+    }
 
     updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
         this.marvelService
             .getCharacter(id)
-            .then(res => {
-                this.setState(res);
-            })
+            .then(this.onCharLoaded)
     }
 
     render() {
-        const { name, description, thumbnail, homepage, wiki } = this.state;
-
+        const { char: { name, description, thumbnail, homepage, wiki } } = this.state;
+        let newDesc;
+        if (description) {
+            if (description.length > 214) {
+                newDesc = description.slice(0, 214) + '...';
+            } else {
+                newDesc = description;
+            }
+        } else {
+            newDesc = 'There is no data about this character';
+        }
+        console.log(description);
         return (
             <div className="randomchar" >
                 <div className="randomchar__block">
@@ -38,7 +46,7 @@ class RandomChar extends Component {
                     <div className="randomchar__info">
                         <p className="randomchar__name">{name}</p>
                         <p className="randomchar__descr">
-                            {description}
+                            {newDesc}
                         </p>
                         <div className="randomchar__btns">
                             <a href={homepage} className="button button__main">
