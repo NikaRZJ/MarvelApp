@@ -1,9 +1,9 @@
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 import { Component } from 'react';
-import MarvelService from '../../services/MarvelService.js';
-import Spinner from '../spinner/Spinner.js';
-import ErrorMessage from '../errorMessage/ErrorMessage.js';
+import MarvelService from '../../services/MarvelService';
+import Spinner from '../spinner/Spinner';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 class RandomChar extends Component {
     state = {
         char: {},

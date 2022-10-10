@@ -1,8 +1,8 @@
-import AppHeader from "../appHeader/AppHeader.js";
-import RandomChar from "../randomChar/RandomChar.js";
-import CharList from "../charList/CharList.js";
-import CharInfo from "../charInfo/CharInfo.js";
-import ErrorBoundary from "../errorBoundary/ErrorBoundary.js";
+import AppHeader from "../appHeader/AppHeader";
+import RandomChar from "../randomChar/RandomChar";
+import CharList from "../charList/CharList";
+import CharInfo from "../charInfo/CharInfo";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import decoration from '../../resources/img/vision.png';
 import { Component } from "react";
 
