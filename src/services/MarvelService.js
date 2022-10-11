@@ -21,7 +21,6 @@ class MarvelService {
 
     getCharacter = async (id) => {
         const res = await this.getResource(`${this._apiBase}characters/${id}?${this._apiKey}`);
-        // const res = await this.getResource(`https://gateway.marvel.com:443/v1/public/characters?name=TORO&apikey=5fd3f03653c1245ba41bca1d67655276`);
         return this._transformCharacter(res.data.results[0]);
     }
 
