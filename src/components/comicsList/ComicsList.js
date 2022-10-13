@@ -8,7 +8,7 @@ const ComicsList = () => {
 
     const [comicsList, setComicsList] = useState([]);
     const [newComicLoading, setNewComicLoading] = useState(false);
-    const [offset, setOffset] = useState(500);
+    const [offset, setOffset] = useState(210);
     const [comicEnded, setComicEnded] = useState(false);
 
     const { loading, error, getAllComics } = useMarvelService();
@@ -35,7 +35,7 @@ const ComicsList = () => {
         setComicEnded(comicEnded => ended);
     }
 
-    function renderItems(arr) {
+    function renderComics(arr) {
         const items = arr.map((item, i) => {
             let objFit = { objectFit: 'cover' }
             if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -61,7 +61,7 @@ const ComicsList = () => {
         )
     }
 
-    const items = renderItems(comicsList);
+    const items = renderComics(comicsList);
     const errorMessage = error ? <ErrorMessage /> : null;
     const spinner = loading && !newComicLoading ? <Spinner /> : null;
     return (
