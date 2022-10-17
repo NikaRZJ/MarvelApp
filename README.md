@@ -1,6 +1,6 @@
-<!-- # Link on App
+# Link on App
 
-https://nikarzj.github.io -->
+https://nikarzj.github.io/MarvelApp
 
 # Getting Started with Create React App
 
