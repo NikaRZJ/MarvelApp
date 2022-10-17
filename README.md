@@ -1,6 +1,6 @@
 # Link on App
 
-https://nikarzj.github.io/MarvelApp/
+https://nikarzj.github.io
 
 # Getting Started with Create React App
 

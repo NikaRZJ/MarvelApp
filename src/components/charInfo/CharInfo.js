@@ -5,11 +5,11 @@ import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 const CharInfo = (props) => {
 
     const [char, setChar] = useState(null);
     const { charId } = props;
-
     const { loading, error, getCharacter, clearError } = useMarvelService();
 
     useEffect(() => {
@@ -54,10 +54,19 @@ const View = ({ char }) => {
 
     if (comics.length !== 0) {
         comicsFilter = comics.map((item, i) => {
+            const link = item.resourceURI;
+            let id = '';
+            let ind = link.length - 1;
+            while (link[ind] != '/') {
+                id += link[ind];
+                --ind;
+            }
+
+            id = id.split('').reverse().join('');
             if (i < 10) {
                 return (
                     <li key={i} className="char__comics-item">
-                        {item.name}
+                        <Link to={`/comics/${id}`}>{item.name}</Link>
                     </li>
                 )
             }
