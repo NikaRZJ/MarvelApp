@@ -9,13 +9,13 @@ const App = () => {
                 <AppHeader />
                 <main>
                     <Switch>
-                        <Route exact path="/">
+                        <Route exact path="/MarvelApp">
                             <MainPage />
                         </Route>
-                        <Route exact path="/comics">
+                        <Route exact path="/MarvelApp/comics">
                             <ComicsPage />
                         </Route>
-                        <Route exact path="/comics/:comicId">
+                        <Route exact path="/MarvelApp/comics/:comicId">
                             <SingleComicPage />
                         </Route>
                         <Route path="*">

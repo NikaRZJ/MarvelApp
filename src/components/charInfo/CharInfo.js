@@ -66,7 +66,7 @@ const View = ({ char }) => {
             if (i < 10) {
                 return (
                     <li key={i} className="char__comics-item">
-                        <Link to={`/comics/${id}`}>{item.name}</Link>
+                        <Link to={`/MarvelApp/comics/${id}`}>{item.name}</Link>
                     </li>
                 )
             }
