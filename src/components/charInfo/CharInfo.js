@@ -57,7 +57,7 @@ const View = ({ char }) => {
             const link = item.resourceURI;
             let id = '';
             let ind = link.length - 1;
-            while (link[ind] != '/') {
+            while (link[ind] !== '/') {
                 id += link[ind];
                 --ind;
             }
