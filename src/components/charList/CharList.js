@@ -4,6 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import PropTypes from 'prop-types';
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
 
 const CharList = (props) => {
 
@@ -58,30 +62,32 @@ const CharList = (props) => {
                 objFit = { objectFit: 'unset' }
             }
             return (
-                <li
-                    ref={el => itemRefs.current[i] = el}
-                    className={'char__item'}
-                    key={item.id}
-                    onClick={() => {
-                        props.onCharSelected(item.id);
-                        focusOnItem(i);
-                    }}
-                    onKeyPress={(e) => {
-                        if (e.key === ' ' || e.key === "Enter") {
+                <CSSTransition timeout={500} classNames="char__item">
+                    <li
+                        ref={el => itemRefs.current[i] = el}
+                        className={'char__item'}
+                        key={item.id}
+                        onClick={() => {
                             props.onCharSelected(item.id);
                             focusOnItem(i);
-                        }
-                    }}
-                >
-                    <img src={item.thumbnail} alt={item.name} style={objFit} />
-                    <div className="char__name">{item.name}</div>
-                </li>
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === ' ' || e.key === "Enter") {
+                                props.onCharSelected(item.id);
+                                focusOnItem(i);
+                            }
+                        }}
+                    >
+                        <img src={item.thumbnail} alt={item.name} style={objFit} />
+                        <div className="char__name">{item.name}</div>
+                    </li>
+                </CSSTransition>
             )
         });
         return (
-            <ul className="char__grid">
+            <TransitionGroup className="char__grid">
                 {items}
-            </ul>
+            </TransitionGroup>
         )
     }
 
