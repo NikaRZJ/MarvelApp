@@ -14,7 +14,7 @@ const SinglePage = ({ Component, dataType }) => {
 
     useEffect(() => {
         updateData()
-    }, [id]);
+    }, [id]); // eslint-disable-line
 
     const updateData = () => {
         clearError();
@@ -26,6 +26,7 @@ const SinglePage = ({ Component, dataType }) => {
             case 'character':
                 getCharacter(id).then(onDataLoaded);
                 break;
+            default:
         }
     }
 
